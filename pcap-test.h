@@ -48,7 +48,7 @@ struct libnet_tcp_hdr
 uint16_t con16 (uint8_t i, uint8_t j){
 	return (i<<8)+j;
 }
-uint16_t con32 (uint8_t a, uint8_t b, uint8_t c, uint8_t d){
+uint32_t con32 (uint8_t a, uint8_t b, uint8_t c, uint8_t d){
 	return (a<<24) + (b<<16) + (c<<8) + d;
 }
 
@@ -128,7 +128,7 @@ int pkt_cap(struct pcap_pkthdr* header,const u_char* packet)
 
 			sprintf(mac_add,"%02X:%02X:%02X:%02X:%02X:%02X",ethernet.ether_dhost[0],ethernet.ether_dhost[1],ethernet.ether_dhost[2],ethernet.ether_dhost[3],ethernet.ether_dhost[4],ethernet.ether_dhost[5]);
 			printf("Dst Mac : %s\n",mac_add);
-
+			
 			puts("IP Header");
 
 			printf("Src IP : %s\n",inet_ntoa(ip.ip_src));
